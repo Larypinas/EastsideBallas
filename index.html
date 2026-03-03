@@ -53,6 +53,7 @@
 
 <div class="overlay">
     <h1>EAST SIDE BALLAS</h1>
+    <button id="musicBtn">🔊 ATIVAR SOM</button>
 </div>
 
 <audio id="bgMusic" loop>
@@ -61,12 +62,23 @@
 
 <script>
 const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
 music.volume = 0.5;
 
-window.addEventListener("load", () => {
-    document.body.addEventListener("click", () => {
-        music.play().catch(() => {});
-    }, { once: true });
+btn.addEventListener("click", () => {
+    music.play();
+    btn.textContent = "🔇 PAUSAR SOM";
+
+    btn.onclick = () => {
+        if (music.paused) {
+            music.play();
+            btn.textContent = "🔇 PAUSAR SOM";
+        } else {
+            music.pause();
+            btn.textContent = "🔊 ATIVAR SOM";
+        }
+    };
 });
 </script>
     
