@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Braço Direito | Ballas</title>
+<title>Braço Direito - East Side Ballas</title>
 
 <style>
     body {
         margin: 0;
         padding: 0;
-        font-family: 'Segoe UI', Arial, sans-serif;
-        color: white;
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        color: white;
+        text-align: center;
 
-        /* IMAGEM DE FUNDO */
-        background: 
+        background:
         linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
         url("https://r2.fivemanage.com/image/NESF8AHZ1iCb.png");
         background-size: cover;
@@ -25,88 +25,102 @@
         background-attachment: fixed;
     }
 
-    .container {
-        background: rgba(20, 20, 20, 0.90);
-        border: 2px solid #7b00ff;
-        border-radius: 20px;
-        padding: 50px;
-        width: 600px;
-        text-align: center;
-        box-shadow: 0 0 40px rgba(123, 0, 255, 0.6);
-        position: relative;
-        overflow: hidden;
-        backdrop-filter: blur(6px);
-    }
-
-    .container::before {
-        content: "";
-        position: absolute;
-        width: 300%;
-        height: 300%;
-        top: -100%;
-        left: -100%;
-        background: radial-gradient(circle, rgba(123,0,255,0.2) 0%, transparent 70%);
-        animation: glow 6s linear infinite;
-    }
-
-    @keyframes glow {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
     h1 {
-        font-size: 48px;
+        font-size: 60px;
+        letter-spacing: 6px;
         color: #b266ff;
-        text-shadow: 0 0 15px #7b00ff;
-        margin-bottom: 10px;
-        letter-spacing: 3px;
+        text-shadow: 0 0 25px #7b00ff;
     }
 
-    .subtitle {
-        font-size: 14px;
-        color: #999;
-        margin-bottom: 40px;
-        letter-spacing: 2px;
-    }
-
-    .description {
-        font-size: 18px;
-        line-height: 1.6;
-        color: #ddd;
+    p {
+        font-size: 19px;
+        margin-top: 20px;
+        max-width: 700px;
+        line-height: 1.7;
     }
 
     .highlight {
         color: #b266ff;
         font-weight: bold;
+        text-shadow: 0 0 10px #7b00ff;
     }
 
-    .footer {
-        margin-top: 40px;
-        font-size: 12px;
-        color: #555;
+    .overlay {
+        background: rgba(0,0,0,0.5);
+        padding: 60px 80px;
+        border-radius: 20px;
+        border: 2px solid #7b00ff;
+        box-shadow: 0 0 50px rgba(123, 0, 255, 0.6);
+        backdrop-filter: blur(6px);
+    }
+
+    a {
+        display: inline-block;
+        margin-top: 30px;
+        text-decoration: none;
+        color: #b266ff;
+        font-weight: bold;
         letter-spacing: 2px;
     }
+
+    a:hover {
+        color: white;
+    }
+button {
+    margin-top: 30px;
+    background: transparent;
+    border: 2px solid #b266ff;
+    color: #b266ff;
+    padding: 12px 30px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+    text-shadow: 0 0 10px #7b00ff;
+}
+
+button:hover {
+    background: rgba(178,102,255,0.1);
+    box-shadow: 0 0 20px #7b00ff;
+}
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>BRAÇO DIREITO</h1>
-    <div class="subtitle">EAST SIDE BALLAS</div>
+<div class="overlay">
+    <h1>Braço Direito</h1>
 
-    <div class="description">
+    <p>
         São os membros de <span class="highlight">maior confiança</span> da gangue.
         Estes são os únicos, além dos patrões, que têm acesso ao 
         <span class="highlight">baú da gerência</span>, sendo assim,
         também responsáveis pela <span class="highlight">administração da gangue</span> 
         e seus equipamentos.
-    </div>
+    </p>
 
-    <div class="footer">
-        
-    </div>
-</div>
+<button id="musicBtn">ATIVAR SOM</button>
+
+<audio id="bgMusic" loop>
+   <source src="https://r2.fivemanage.com/8naZrBl7lYmbcqGUtr377/BALLAS.wav">
+</audio>
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+music.volume = 0.5;
+
+btn.addEventListener("click", () => {
+    if (music.paused) {
+        music.play();
+        btn.textContent = "PAUSAR SOM";
+    } else {
+        music.pause();
+        btn.textContent = "ATIVAR SOM";
+    }
+});
+</script>
 
 </body>
 </html>
