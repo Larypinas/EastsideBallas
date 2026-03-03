@@ -66,6 +66,24 @@
     a:hover {
         color: white;
     }
+button {
+    margin-top: 30px;
+    background: transparent;
+    border: 2px solid #b266ff;
+    color: #b266ff;
+    padding: 12px 30px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+    text-shadow: 0 0 10px #7b00ff;
+}
+
+button:hover {
+    background: rgba(178,102,255,0.1);
+    box-shadow: 0 0 20px #7b00ff;
+}
 </style>
 </head>
 
@@ -81,6 +99,28 @@
         <br><br>
         <span class="highlight">Alguns OG's ocupam posições tão altas ou até maiores que os atuais patrões, como por exemplo antigos líderes que não puderam continuar no cargo, mas ainda possuem o respeito absoluto da posição.</span>
     </p>
+
+<button id="musicBtn">ATIVAR SOM</button>
+
+<audio id="bgMusic" loop>
+   <source src="https://r2.fivemanage.com/8naZrBl7lYmbcqGUtr377/RealOG-TyroneSmithFeat.Lone.mp3" type="audio/mpeg">
+</audio>
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+music.volume = 0.5;
+
+btn.addEventListener("click", () => {
+    if (music.paused) {
+        music.play();
+        btn.textContent = "PAUSAR SOM";
+    } else {
+        music.pause();
+        btn.textContent = "ATIVAR SOM";
+    }
+});
+</script>
 
 </body>
 </html>
