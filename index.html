@@ -60,12 +60,14 @@
 </audio>
 
 <script>
-    const music = document.getElementById("bgMusic");
-    music.volume = 0.5;
+const music = document.getElementById("bgMusic");
+music.volume = 0.5;
 
-    document.addEventListener("click", function () {
-        music.play();
+window.addEventListener("load", () => {
+    document.body.addEventListener("click", () => {
+        music.play().catch(() => {});
     }, { once: true });
+});
 </script>
     
 </body>
