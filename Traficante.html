@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Traficantes - East Side Ballas</title>
+<title>Traficante - East Side Ballas</title>
 
 <style>
     body {
@@ -33,10 +33,16 @@
     }
 
     p {
-        font-size: 20px;
+        font-size: 19px;
         margin-top: 20px;
-        max-width: 600px;
-        line-height: 1.6;
+        max-width: 700px;
+        line-height: 1.7;
+    }
+
+    .highlight {
+        color: #b266ff;
+        font-weight: bold;
+        text-shadow: 0 0 10px #7b00ff;
     }
 
     .overlay {
@@ -60,19 +66,59 @@
     a:hover {
         color: white;
     }
+button {
+    margin-top: 30px;
+    background: transparent;
+    border: 2px solid #b266ff;
+    color: #b266ff;
+    padding: 12px 30px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+    text-shadow: 0 0 10px #7b00ff;
+}
+
+button:hover {
+    background: rgba(178,102,255,0.1);
+    box-shadow: 0 0 20px #7b00ff;
+}
 </style>
 </head>
 
 <body>
 
 <div class="overlay">
-    <h1>TRAFICANTE</h1>
+    <h1>Traficante</h1>
 
     <p>
-       Alguém que já está na gangue por um tempo considerável,
+        Alguém que já está na gangue por um tempo considerável,
         porém ainda não o suficiente para se tornarem membros oficiais.
         Estão em constante prova, mostrando lealdade, disciplina e presença.
     </p>
+
+<button id="musicBtn">ATIVAR SOM</button>
+
+<audio id="bgMusic" loop>
+   <source src="https://r2.fivemanage.com/8naZrBl7lYmbcqGUtr377/avissaai.mp3">
+</audio>
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+music.volume = 0.5;
+
+btn.addEventListener("click", () => {
+    if (music.paused) {
+        music.play();
+        btn.textContent = "PAUSAR SOM";
+    } else {
+        music.pause();
+        btn.textContent = "ATIVAR SOM";
+    }
+});
+</script>
 
 </body>
 </html>
