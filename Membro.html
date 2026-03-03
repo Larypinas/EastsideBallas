@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Membro | East Side Ballas</title>
+<title>Membro - East Side Ballas</title>
 
 <style>
     body {
@@ -25,53 +25,65 @@
         background-attachment: fixed;
     }
 
-    .container {
-        background: rgba(20, 20, 20, 0.90);
-        border: 2px solid #7b00ff;
-        border-radius: 20px;
-        padding: 50px;
-        width: 650px;
-        text-align: center;
-        box-shadow: 0 0 40px rgba(123, 0, 255, 0.6);
-        backdrop-filter: blur(6px);
-    }
-
     h1 {
-        font-size: 48px;
+        font-size: 60px;
+        letter-spacing: 6px;
         color: #b266ff;
-        text-shadow: 0 0 15px #7b00ff;
-        letter-spacing: 4px;
-        margin-bottom: 20px;
+        text-shadow: 0 0 25px #7b00ff;
     }
 
-    .description {
-        font-size: 18px;
+    p {
+        font-size: 19px;
+        margin-top: 20px;
+        max-width: 700px;
         line-height: 1.7;
-        color: #ddd;
     }
 
     .highlight {
         color: #b266ff;
         font-weight: bold;
+        text-shadow: 0 0 10px #7b00ff;
     }
 
-    .back {
+    .overlay {
+        background: rgba(0,0,0,0.5);
+        padding: 60px 80px;
+        border-radius: 20px;
+        border: 2px solid #7b00ff;
+        box-shadow: 0 0 50px rgba(123, 0, 255, 0.6);
+        backdrop-filter: blur(6px);
+    }
+
+    a {
         display: inline-block;
-        margin-top: 35px;
-        padding: 12px 30px;
-        border: 2px solid #b266ff;
-        border-radius: 25px;
-        color: #b266ff;
+        margin-top: 30px;
         text-decoration: none;
-        transition: 0.3s;
+        color: #b266ff;
+        font-weight: bold;
         letter-spacing: 2px;
     }
 
-    .back:hover {
-        background: #b266ff;
-        color: black;
-        box-shadow: 0 0 20px #7b00ff;
+    a:hover {
+        color: white;
     }
+button {
+    margin-top: 30px;
+    background: transparent;
+    border: 2px solid #b266ff;
+    color: #b266ff;
+    padding: 12px 30px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+    text-shadow: 0 0 10px #7b00ff;
+}
+
+button:hover {
+    background: rgba(178,102,255,0.1);
+    box-shadow: 0 0 20px #7b00ff;
+}
 </style>
 </head>
 
@@ -86,6 +98,28 @@
         Portanto, devem agir com <span class="highlight">cautela</span> em questões
         que envolvem a organização.
     </div>
+
+<button id="musicBtn">ATIVAR SOM</button>
+
+<audio id="bgMusic" loop>
+   <source src="https://r2.fivemanage.com/8naZrBl7lYmbcqGUtr377/BALLAS.wav">
+</audio>
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+music.volume = 0.5;
+
+btn.addEventListener("click", () => {
+    if (music.paused) {
+        music.play();
+        btn.textContent = "PAUSAR SOM";
+    } else {
+        music.pause();
+        btn.textContent = "ATIVAR SOM";
+    }
+});
+</script>
 
 </body>
 </html>
