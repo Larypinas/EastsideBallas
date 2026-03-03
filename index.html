@@ -13,6 +13,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         font-family: 'Segoe UI', Arial, sans-serif;
         color: white;
         text-align: center;
@@ -31,6 +32,7 @@
         color: #b266ff;
         text-shadow: 0 0 25px #7b00ff;
         animation: glow 2.5s infinite alternate;
+        margin-bottom: 40px;
     }
 
     @keyframes glow {
@@ -38,26 +40,31 @@
         to { text-shadow: 0 0 35px #b266ff; }
     }
 
-    .overlay {
-        background: rgba(0,0,0,0.4);
-        padding: 60px 80px;
-        border-radius: 20px;
-        border: 2px solid #7b00ff;
-        box-shadow: 0 0 50px rgba(123, 0, 255, 0.6);
-        backdrop-filter: blur(5px);
+    #musicBtn {
+        background: none;
+        border: none;
+        font-size: 22px;
+        letter-spacing: 3px;
+        color: #b266ff;
+        cursor: pointer;
+        text-shadow: 0 0 15px #7b00ff;
+        transition: 0.3s;
+    }
+
+    #musicBtn:hover {
+        text-shadow: 0 0 30px #b266ff;
     }
 </style>
 </head>
 
 <body>
 
-<div class="overlay">
-    <h1>EAST SIDE BALLAS</h1>
-    <button id="musicBtn">🔊 ATIVAR SOM</button>
-</div>
+<h1>EAST SIDE BALLAS</h1>
+<button id="musicBtn">ATIVAR SOM</button>
 
 <audio id="bgMusic" loop>
-@@ -61,12 +62,23 @@ <h1>EAST SIDE BALLAS</h1>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 const music = document.getElementById("bgMusic");
@@ -65,25 +72,16 @@ const btn = document.getElementById("musicBtn");
 
 music.volume = 0.5;
 
-window.addEventListener("load", () => {
-    document.body.addEventListener("click", () => {
-        music.play().catch(() => {});
-    }, { once: true });
 btn.addEventListener("click", () => {
-    music.play();
-    btn.textContent = "🔇 PAUSAR SOM";
-
-    btn.onclick = () => {
-        if (music.paused) {
-            music.play();
-            btn.textContent = "🔇 PAUSAR SOM";
-        } else {
-            music.pause();
-            btn.textContent = "🔊 ATIVAR SOM";
-        }
-    };
+    if (music.paused) {
+        music.play();
+        btn.textContent = "PAUSAR SOM";
+    } else {
+        music.pause();
+        btn.textContent = "ATIVAR SOM";
+    }
 });
 </script>
-    
+
 </body>
 </html>
